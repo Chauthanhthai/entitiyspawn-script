@@ -1,0 +1,39 @@
+-- Đặt script này trong ServerScriptService
+
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+local Entities = ReplicatedStorage:WaitForChild("Entities")
+
+local Workspace = game:GetService("Workspace")
+
+local spawnDelay = 10  -- Delay spawn mỗi 10s
+
+local entityName = "Rush" -- Tên model trong ReplicatedStorage.Entities
+
+while true do
+
+	wait(spawnDelay)
+
+	local entityModel = Entities:FindFirstChild(entityName)
+
+	if entityModel then
+
+		local spawnPoint = Workspace:WaitForChild("SpawnPoints"):WaitForChild("RushSpawn")
+
+		local newEntity = entityModel:Clone()
+
+		newEntity.Parent = Workspace
+
+		newEntity:SetPrimaryPartCFrame(spawnPoint.CFrame)
+
+		
+
+		print(entityName .. " has spawned.")
+
+	else
+
+		warn("Entity not found: " .. entityName)
+
+	end
+
+end
