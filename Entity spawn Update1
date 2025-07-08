@@ -45,6 +45,15 @@ Section:NewButton("Sprint", "yeahhhhhhh", function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/DoorsHubs/Doors-Hubs/refs/heads/main/Hardcore%20Sprint%20System%20(PC%20and%20Mobile%20Adaptation).lua.txt"))()
     print("Clicked")
 end)
+Section:NewButton("Prompt skip", "wow", function()
+--[[
+	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
+]]
+game:GetService("ProximityPromptService").PromptButtonHoldBegan:Connect(function(prompt)
+  fireproximityprompt(prompt)
+end)
+    print("Clicked")
+end)
 local Tab = Window:NewTab("Entity Spawner")
 local Section = Tab:NewSection("Entity")
 Section:NewLabel("Lunacy Mode")
